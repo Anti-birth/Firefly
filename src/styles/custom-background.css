@@ -1,0 +1,29 @@
+/* 自定义全屏背景：白天 / 黑夜按主题模式切换
+ * 背景挂在 <html> 上：html 的背景会传播到整个画布（canvas），
+ * 从而覆盖整个视口，包括内容区两侧 —— 两侧始终能看到城堡壁纸。
+ */
+html {
+	background-image: url("/assets/images/bg/bg-light.png");
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+html.dark {
+	background-image: url("/assets/images/bg/bg-dark.png");
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+
+	/* 深色模式：页面底色与卡片背景改为半透明，让背景图透出来 */
+	--page-bg: rgba(0, 0, 0, 0.35);
+	--card-bg: rgba(0, 0, 0, 0.35);
+	--card-bg-transparent: rgba(0, 0, 0, 0.35);
+}
+
+/* body 不设背景，让画布（html 背景图）透出 */
+body {
+	background: none;
+}
